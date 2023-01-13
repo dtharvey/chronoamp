@@ -1,0 +1,13 @@
+name: chronoamperometry
+title: chronoamperometry
+username:
+account: dthdpu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7425688
+bundleId: 6442588
+url: https://dthdpu.shinyapps.io/chronoamperometry/
+when: 1666787944.91362
+lastSyncTime: 1666787944.91363
+asMultiple: FALSE
+asStatic: FALSE

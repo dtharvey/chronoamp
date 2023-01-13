@@ -1,0 +1,41 @@
+---
+output:
+  html_document: default
+---
+```{=latex}
+\require{mhchem}
+```
+
+In chronoamperometry we apply a potential pulse to a solution of an analyte and measure (*--ometry*) the current (*--amper--*) that flows as a function of time (*chrono--*) after the pulse. The set of four figures on the right illustrate an experiment in which an oxidized species undergoes an *n* electron reduction
+
+$$\text{Ox} + n e^- \leftrightarrows \text{Red}$$
+
+Although not of interest to us here, an oxidation reaction, often involving the solvent, also is taking place.
+
+### Figures
+
+**Ladder Diagram (upper left)**. A ladder diagram shows the relative stability of an analyte's oxidized and reduced forms as a function of the applied potential.
+
+**Applied Potential Profile (upper right)**. In this experiment the applied potential is held at 0.0 V for 10 seconds and then pulsed to a potential of --0.5 V and held at this potential for 20 seconds. The dashed red line shows the applied potential at the time given by the slider for time.
+
+**Diffusion Profiles (lower left)**. A diffusion profile shows the concentration of the analyte's oxidized and reduced forms as a function of distance from the electrode's surface at the time given by the slider for time.
+
+**Chronoamperogram (lower right)**. The chronoamperogram shows the current that flows as a function of time. The dashed red line shows the applied potential at the time given by the slider for time.
+
+### Questions
+
+**Q1**. Click on the play button for the slider that controls time and observe how the diffusion profiles for Ox and Red change as a function of the applied potential. Explain why these diffusion profiles make sense given the applied potential profile and the ladder diagram.
+
+**Q2**. The current in a chronoamperometry experiment is a measure of the rate at which electrons move from. Explain why the exponential decrease in current as a function of time makes sense.
+
+**Q3**. The controls on the right allow you to adjust the area, *A*, of the electrode where the reduction of Ox takes place, the concentration of the oxidized form of the analyte, [Ox], in bulk solution, the diffusion coefficient, *D*, for the oxidized species---the diffusion coefficient is a measure of how quickly a species moves in response to a concentration gradient---the number of electrons, *n*, in the reduction reaction, and the time, *t*, after applying the pulse. Adjust the controls and determine how each variable affects the current. Does an increase in the variable increase or decrease the current? Is the relationship linear or is it a power function? Explain why these effects makes sense.
+
+### Further Reading
+
+For a comprehensive treatment of electrochemistry, including chronoamperometry, see Bard, A. J.; Faulkner, L. R. *Electrochemical Methods*, Wiley: New York, 1980.
+
+For a short, accessible article that explains several fundamental concepts for electrochemistry, see Faulkner, L. R. "Understanding Electrochemistry: Some Distinctive Concepts," *J. Chem. Educ.*, **1983**, 262--264. 60, 262--264.
+
+For a discussion of ladder diagrams in general, and for redox chemistry in particular, see Chapter 6.6 in *Analytical Chemistry 2.0*, available [here](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_(Harvey)/06%3A_Equilibrium_Chemistry/6.06%3A_Ladder_Diagrams).
+
+The chronoamperometry figures in this application were created using the eChem package for R available [here](https://cran.r-project.org/package=eChem) and [here](https://github.com/dtharvey/eChem).
