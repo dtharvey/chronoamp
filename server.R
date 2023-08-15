@@ -3,7 +3,7 @@
 library(shiny)
 library(shinythemes)
 library(eChem)
-source("R/ladder_pot.R")
+
 
 # set colors
 palette("Okabe-Ito")
