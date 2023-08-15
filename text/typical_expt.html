@@ -11,7 +11,7 @@
 
 
 
-<title>chronoamp.knit</title>
+<title>typical_expt.knit</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -352,71 +352,56 @@ display: none;
 </div>
 
 
-<p>In chronoamperometry we apply a potential pulse to a solution of an
-analyte and measure (<em>–ometry</em>) the current (<em>–amper–</em>)
-that flows as a function of time (<em>chrono–</em>) after the pulse. The
-set of four figures on the right illustrate an experiment in which an
-oxidized species undergoes an <em>n</em> electron reduction</p>
-<p><span class="math display">\[\text{Ox} + n e^- \leftrightarrows
-\text{Red}\]</span></p>
-<p>Although not of interest to us here, an oxidation reaction, often
-involving the solvent, also is taking place.</p>
-<div id="figures" class="section level3">
-<h3>Figures</h3>
-<p><strong>Ladder Diagram (upper left)</strong>. A ladder diagram shows
-the relative stability of an analyte’s oxidized and reduced forms as a
-function of the applied potential.</p>
-<p><strong>Applied Potential Profile (upper right)</strong>. In this
-experiment the applied potential is held at 0.0 V for 10 seconds and
-then pulsed to a potential of –0.5 V and held at this potential for 20
-seconds. The dashed red line shows the applied potential at the time
-given by the slider for time.</p>
-<p><strong>Diffusion Profiles (lower left)</strong>. A diffusion profile
-shows the concentration of the analyte’s oxidized and reduced forms as a
-function of distance from the electrode’s surface at the time given by
-the slider for time.</p>
-<p><strong>Chronoamperogram (lower right)</strong>. The chronoamperogram
-shows the current that flows as a function of time. The dashed red line
-shows the applied potential at the time given by the slider for
-time.</p>
-</div>
-<div id="questions" class="section level3">
-<h3>Questions</h3>
-<p><strong>Q1</strong>. Click on the play button for the slider that
-controls time and observe how the diffusion profiles for Ox and Red
-change as a function of the applied potential. Explain why these
-diffusion profiles make sense given the applied potential profile and
-the ladder diagram.</p>
-<p><strong>Q2</strong>. The current in a chronoamperometry experiment is
-a measure of the rate at which electrons move from. Explain why the
-exponential decrease in current as a function of time makes sense.</p>
-<p><strong>Q3</strong>. The controls on the right allow you to adjust
-the area, <em>A</em>, of the electrode where the reduction of Ox takes
-place, the concentration of the oxidized form of the analyte, [Ox], in
-bulk solution, the diffusion coefficient, <em>D</em>, for the oxidized
-species—the diffusion coefficient is a measure of how quickly a species
-moves in response to a concentration gradient—the number of electrons,
-<em>n</em>, in the reduction reaction, and the time, <em>t</em>, after
-applying the pulse. Adjust the controls and determine how each variable
-affects the current. Does an increase in the variable increase or
-decrease the current? Is the relationship linear or is it a power
-function? Explain why these effects makes sense.</p>
-</div>
-<div id="further-reading" class="section level3">
-<h3>Further Reading</h3>
-<p>For a comprehensive treatment of electrochemistry, including
-chronoamperometry, see Bard, A. J.; Faulkner, L. R. <em>Electrochemical
-Methods</em>, Wiley: New York, 1980.</p>
-<p>For a short, accessible article that explains several fundamental
-concepts for electrochemistry, see Faulkner, L. R. “Understanding
-Electrochemistry: Some Distinctive Concepts,” <em>J. Chem. Educ.</em>,
-<strong>1983</strong>, 262–264. 60, 262–264.</p>
-<p>For a discussion of ladder diagrams in general, and for redox
-chemistry in particular, see Chapter 6.6 in <em>Analytical Chemistry
-2.0</em>, available <a href="https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_(Harvey)/06%3A_Equilibrium_Chemistry/6.06%3A_Ladder_Diagrams">here</a>.</p>
-<p>The chronoamperometry figures in this application were created using
-the eChem package for R available <a href="https://cran.r-project.org/package=eChem">here</a> and <a href="https://github.com/dtharvey/eChem">here</a>.</p>
-</div>
+<!-- The following script makes it possible to use the mhchem -->
+<!-- latex package in a .Rmd file and to knit it into an .html file -->
+<!-- the font size is scaled to 90% to match text -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    extensions: ["[Contrib]/mhchem/mhchem.js"]
+}
+});
+MathJax.Hub.Config({ 
+        "HTML-CSS": { scale: 90 }, 
+        SVG: { linebreaks: { automatic:true } }, 
+ });
+</script>
+<!-- text for activity 1 -->
+<p>The four figures on the right provide information for a typical
+chronoamperometry experiment: the reversible one-electron reduction of
+Ox to Red (<span class="math inline">\(\ce{Ox} + e^- \ce{&lt;=&gt;}
+\ce{Red}\)</span>). The initial concentration of Ox is 1.0 mM. A
+potential of <span class="math inline">\(0.0 \text{ V}\)</span> is
+maintained for 10 s and then pulsed to <span class="math inline">\(-0.5
+\text{ V}\)</span> where it is held for an additional 10 s. The solution
+remains unstirred throughout the experiment. You can use the slider to
+explore how the potential, the concentrations of Ox and Red, and the
+current change with time. Clicking on the slider’s play button steps
+through the experiment in 1 s intervals.</p>
+<p><strong>Exercise 1</strong>. Using the ladder diagram as a guide,
+will the redox reaction take place if the applied potential is pulsed
+from <span class="math inline">\(0 \text{ V}\)</span> to <span class="math inline">\(-0.1 \text{ V}\)</span>? What if the applied
+potential is pulsed from <span class="math inline">\(0 \text{
+V}\)</span> to <span class="math inline">\(-0.4 \text{ V}\)</span>.?</p>
+<p><strong>Exercise 2</strong>. Examine the diffusion profiles for Ox
+and for Red at times <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(t = 10\)</span>, and <span class="math inline">\(t
+= 15\)</span>, and describe features that they share and features that
+they do not share.</p>
+<p><strong>Exercise 3</strong>. Examine the diffusion profiles for Ox
+and for Red at <span class="math inline">\(t = 20\)</span> and note that
+the concentration of Ox is 0 mM at the electrode’s surface, but 1.0 mM
+when sufficiently far from the electrode. Why is there no Ox at the
+electrode’s surface? Provide an explanation for why the concentration of
+Ox is not 0 mM at all distances. It might be useful to know that the
+electrode has a surface area of 0.01 cm<sup>2</sup> and that the sample
+has a volume on the order of 50 mL.</p>
+<p><strong>Exercise 4</strong>. Current is a measure of the rate at
+which Ox is reduced to Red—or the rate at which Red is oxidized to
+Ox—and is proportional to the slope of the diffusion profile at the
+electrode’s surface. Given this, explain (a) why the current is 0 for
+<span class="math inline">\(t &lt; 10 \text{ s}\)</span>; (b) why the
+current spikes to its maximum value at <span class="math inline">\(t =
+10 \text{ s}\)</span>; and (c) why the current decreases for <span class="math inline">\(t &gt; 10 \text{ s}\)</span>.</p>
 
 
 

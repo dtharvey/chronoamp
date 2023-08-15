@@ -132,12 +132,12 @@ ladder_pot = function(pot_list = c(0.154),
 # code to test
 
 # ladder_pot(type = "strip",
-#            pot_limit = c(-0.5,0),
-#            labels = c(expression("Ox"),
-#                       expression("Red")),
-#            buffer = FALSE,
-#            pot_list = -0.25, electrons = 1,
-#            species = "Ox/Red", pot_axis = TRUE)
+#            pot_limit = c(0,1),
+#            labels = c(expression("Fe"^"3+"),
+#                       expression("Fe"^"2+")),
+#            buffer = TRUE,
+#            pot_list = 0.771, electrons = 1,
+#            species = "Fe(III)/Fe(II)", pot_axis = TRUE)
 # ladder_pot(type = "strip", pot_limit = c(0,1), overlay = TRUE,
 #            labels = c(expression("Sn"^"4+"), expression("Sn"^"2+")),
 #            pot_list = 0.154, electrons = 2, buffer = TRUE, locate = 6,

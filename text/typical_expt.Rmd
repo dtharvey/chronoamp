@@ -1,0 +1,33 @@
+---
+output: html_document
+---
+
+<!-- The following script makes it possible to use the mhchem -->
+<!-- latex package in a .Rmd file and to knit it into an .html file -->
+<!-- the font size is scaled to 90% to match text -->
+
+```{=html}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    extensions: ["[Contrib]/mhchem/mhchem.js"]
+}
+});
+MathJax.Hub.Config({ 
+        "HTML-CSS": { scale: 90 }, 
+        SVG: { linebreaks: { automatic:true } }, 
+ });
+</script>
+```
+
+<!-- text for activity 1 -->
+
+The four figures on the right provide information for a typical chronoamperometry experiment: the reversible one-electron reduction of Ox to Red ($\ce{Ox} + e^- \ce{<=>} \ce{Red}$). The initial concentration of Ox is 1.0 mM. A potential of $0.0 \text{ V}$ is maintained for 10 s and then pulsed to $-0.5 \text{ V}$ where it is held for an additional 10 s. The solution remains unstirred throughout the experiment. You can use the slider to explore how the potential, the concentrations of Ox and Red, and the current change with time. Clicking on the slider's play button steps through the experiment in 1 s intervals. 
+
+**Exercise 1**. Using the ladder diagram as a guide, will the redox reaction take place if the applied potential is pulsed from $0 \text{ V}$ to $-0.1 \text{ V}$? What if the applied potential is pulsed from $0 \text{ V}$ to $-0.4 \text{ V}$.?
+
+**Exercise 2**. Examine the diffusion profiles for Ox and for Red at times $t = 0$, $t = 10$, and $t = 15$, and describe features that they share and features that they do not share.
+
+**Exercise 3**. Examine the diffusion profiles for Ox and for Red at $t = 20$ and note that the concentration of Ox is 0 mM at the electrode's surface, but 1.0 mM when sufficiently far from the electrode. Why is there no Ox at the electrode's surface? Provide an explanation for why the concentration of Ox is not 0 mM at all distances. It might be useful to know that the electrode has a surface area of 0.01 cm^2^ and that the sample has a volume on the order of 50 mL. 
+
+**Exercise 4**. Current is a measure of the rate at which Ox is reduced to Red---or the rate at which Red is oxidized to Ox---and is proportional to the slope of the diffusion profile at the electrode's surface. Given this, explain (a) why the current is 0 for $t < 10 \text{ s}$; (b) why the current spikes to its maximum value at $t = 10 \text{ s}$; and (c) why the current decreases for $t > 10 \text{ s}$.

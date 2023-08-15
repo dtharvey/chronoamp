@@ -1,0 +1,37 @@
+---
+output: html_document
+---
+
+<!-- The following script makes it possible to use the mhchem -->
+<!-- latex package in a .Rmd file and to knit it into an .html file -->
+<!-- the font size is scaled to 90% to match text -->
+
+```{=html}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+    extensions: ["[Contrib]/mhchem/mhchem.js"]
+}
+});
+MathJax.Hub.Config({ 
+        "HTML-CSS": { scale: 90 }, 
+        SVG: { linebreaks: { automatic:true } }, 
+ });
+</script>
+```
+
+<!-- text for activity 3 -->
+
+There are two electrochemical methods that extend chronoamperometry by altering how the potential is applied or how the current is measured; each is introduced here.
+
+#### Double-Step Chronoamperometry
+
+In a chronoamperometry experiment, we apply a potential pulse and monitor the current that flows when, for example, the reduction reaction $\ce{Ox} + ne^- \ce{<=>} \ce{Red}$ takes place. In double-step chronoamperometry we follow this initial pulse and measurement of current by applying a second pulse---the double in double-step---that returns the potential to its initial value. If $\ce{Red}$ is chemically unstable, reacting to form an electrochemically inactive species, Z, in a chemically irreversible reaction $\ce{Red -> Z}$, then the concentration of Red at the electrode's surface---and, thus, the current---depends on how quickly Z forms, which is given by a rate constant, $k_{c,f}$.
+
+**Exercise 1**. The figure on the top right is for a double-step chronoamperometry experiment. The solid line shows the current when the rate constant $k_{c,f}$ is 0 and the dashed line shows the current when the rate constant $k_{c,f}$ has the value defined by the slider. Predict what will happen to the current before and after the second pulse is applied. Use the slider to test your prediction. This is one example of how chronoamperometry is used to explore the coupling of chemical and electrochemical reactions.
+
+#### Chronocoulometry
+
+Integrating current as a function of time gives charge, $Q$, in coulombs. In a  chronocoulometry experiment we take the output of a chronoamperometry experiment and run it through an integrator, obtaining a plot of $Q$ vs. $t$.
+
+**Exercise 2**. The figure on the lower right displays a typical single-step chronoamperometry experiment and its associated chronocoulometry experiment at a time determined by the slider. The chronoamperometry experiment is the same as that from the Introduction and Typical Experiment tabPanels. Predict the shape of the $Q$ vs. $t$ profile for the chronocoulometry experiment and then use the slider to test your prediction. Clicking on the slider's play button steps through the experiment in 1 s intervals. What advantage might chronocoulometry have over chronoamperometry?
