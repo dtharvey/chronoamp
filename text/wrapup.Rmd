@@ -1,22 +1,19 @@
 ---
-output: html_document
+output: html_fragment
 ---
 
 #### Source of Data
 
-The data sets in this module were created using `eChem`, a package of `R` functions for simulating a variety of electrochemistry experiments. The simulation calculations use the implicit finite difference method outlined in [D. K. Gosser, *Cyclic Voltammetry Simulation and Analysis of Reaction Mechanisms*, VCH, New York, 1993](https://books.google.com/books/about/Cyclic_Voltammetry.html?id=rqldPgAACAAJ) and in J.H. Brown "Development and Use of a Cyclic Voltammetry Simulator to Introduce Undergraduate Students to Electrochemical Simulations," *J. Chem. Educ.*, **2015**, *92*, 1490--1496](https://doi.org/10.1021/acs.jchemed.5b00225). Although both of these resources were developed to simulate cyclic voltammetry experiments, their approach is easy to generalize to other diffusion-controlled electrochemistry experiments, such as chronoamperometry and chronocoulometry. 
+The data sets in this module were created using `eChem`, a package of `*R*` functions for simulating a variety of electrochemistry experiments. The simulations use the implicit finite difference method outlined in [D. K. Gosser, *Cyclic Voltammetry Simulation and Analysis of Reaction Mechanisms*, VCH, New York, 1993](https://books.google.com/books/about/Cyclic_Voltammetry.html?id=rqldPgAACAAJ) and in J.H. Brown ["Development and Use of a Cyclic Voltammetry Simulator to Introduce Undergraduate Students to Electrochemical Simulations," *J. Chem. Educ.*, **2015**, *92*, 1490--1496](https://doi.org/10.1021/acs.jchemed.5b00225) to calculate the current in chronoamperometry experiments; the charge in a chronocoulometry experiment is calculated using a trapezoidal integration of the corresponding chronoamperometry experiment.  Although both of these resources were developed to simulate cyclic voltammetry experiments, their approach is easy to generalize to other diffusion-controlled electrochemistry experiments, such as chronoamperometry and chronocoulometry. 
 
-The `eChem` package is available from [CRAN](https://cran.r-project.org/web/packages/eChem/index.html) and from [GitHub](https://github.com/dtharvey/eChem). In addition to a functions to simulate electrochemistry experiments, the `eChem` package includes functions to display the results of these experiments. One example is shown on the right. The central figure is the chronoamperogram for a chronoamperometry experiment. Surrounding the chronoamperogram are snapshots of the concentration profiles for Ox and Red at eight times---the time and potential for each are listed above the chronoamperogram---during the experiment.
+The `eChem` package is available from [CRAN](https://cran.r-project.org/web/packages/eChem/index.html) and from [GitHub](https://github.com/dtharvey/eChem). In addition to a functions to simulate electrochemistry experiments, the `eChem` package includes functions to display the results of these experiments. One example is the `plotGrid` function, which is shown on the right. The central figure is the chronoamperogram for a chronoamperometry experiment. Surrounding the chronoamperogram are snapshots of the concentration profiles for Ox and Red at eight times---the time and the potential for each are listed above the chronoamperogram---during the experiment.
 
 #### Additional Resources
 
-For a general introduction to electrochemistry, see Chapter 11 (and, in particular, Chapter 11.4) of [*Analytical Chemistry 2.1*](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_(Harvey)/11%3A_Electrochemical_Methods). This resources is available through the [LibreText]https://libretexts.org/ project.
+For a general introduction to electrochemistry, see Chapter 11 (and, in particular, Chapter 11.4) of [*Analytical Chemistry 2.1*](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_(Harvey)/11%3A_Electrochemical_Methods). This resources is available through the [LibreText](https://libretexts.org/) project.
 
 Another useful general introduction of electrochemistry is [*Analytical Chemistry: The Basic Concepts*](https://www.asdlib.org/onlineArticles/ecourseware/Kelly_Potentiometry/EC_CONCEPTS1.HTM). This resource is available through the [Analytical Sciences Digital Library](https://asdlib.org/).
 
 An excellent introduction to thinking about electrochemistry is the following paper: [Larry R. Faulkner "Understanding electrochemistry: Some distinctive concepts", *J. Chem. Educ.* **1983**, *60*, 262--264](https://doi.org/10.1021/ed060p262).
 
-A description of the `eChem` package and its use in developing simulations is available in [David T. Harvey An-Phong Le Charles A. Lucy Brian M. Mosby Ellane J. Park, "The Use of Simulations with Active Learning Exercises," Chapter 8 in *Active Learning in the Analytical Chemistry Curriculum*, ACS Symposium Series, Vol 1409, 2020, 121-145](https://pubs.acs.org/doi/abs/10.1021/bk-2022-1409.ch008).
-
-
-
+A description of the `eChem` package and its use in developing simulations is available in [David T. Harvey, An-Phong Le, Charles A. Lucy, Brian M. Mosby, and Ellane J. Park, "The Use of Simulations with Active Learning Exercises," Chapter 8 in *Active Learning in the Analytical Chemistry Curriculum*, ACS Symposium Series, Vol 1409, 2020, 121-145](https://pubs.acs.org/doi/abs/10.1021/bk-2022-1409.ch008).

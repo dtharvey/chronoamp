@@ -1,0 +1,11 @@
+---
+output: html_fragment
+---
+
+<!-- text for activity 4 -->
+
+Integrating the current in a chronoamperometry experiment as a function of time gives the cumulative charge, $Q$, in coulombs passed during the redox reaction. In a  chronocoulometry experiment we take the output of a chronoamperometry experiment and run it through an integrator. The result is a plot of $Q$ vs. $t$.
+
+**Exercise 1**. Examine the chronoamperometry experiment in the module's tab for a typical experiment and review what you learned about the shape of the current trace as a function of time. Think about what it means to integrate a function and predict the shape of the corresponding plot of $Q$ vs. $t$. Use the slider to test your prediction and comment on your results. Clicking on the slider's play button steps through the experiment in 1 s intervals.
+
+**Exercise 2**. What advantage(s) might chronocoulometry have over chronoamperometry? Consider, for example, using chronoamperometry and chronocoulometry to determine the concentration of an analyte in a sample. Which method would you use and why?

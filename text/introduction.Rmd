@@ -1,34 +1,16 @@
 ---
-output: html_document
+output: html_fragment
 ---
-
-<!-- The following script makes it possible to use the mhchem -->
-<!-- latex package in a .Rmd file and to knit it into an .html file -->
-<!-- the font size is scaled to 90% to match text -->
-
-```{=html}
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: {
-    extensions: ["[Contrib]/mhchem/mhchem.js"]
-}
-});
-MathJax.Hub.Config({ 
-        "HTML-CSS": { scale: 90 }, 
-        SVG: { linebreaks: { automatic:true } }, 
- });
-</script>
-```
 
 <!-- text for introduction -->
 
-In a chronoamperometry experiment we apply a potential pulse to an electrode and measure $(-ometry)$ the current $(-amper-)$ that flows as a function of time $(chrono-)$ in an unstirred solution. The figures on the right help to illustrate a chronoamperometry experiment in which an oxidized species undergoes an *n* electron reduction at the electrode
-($\ce{Ox} + n e^- \ce{<=>} \ce{Red}$) where Ox is the analyte's oxidized form and Red is its reduced form. These four figures---individually or collectively---are our tools for understanding chronoamperometry.
+In a chronoamperometry experiment we apply a potential pulse to an electrode and measure $(-ometry)$ the current $(-amper-)$ that flows as a function of time $(chrono-)$ in an unstirred solution. The figures on the right provide four views of a chronoamperometry experiment in which an oxidized species undergoes an *n* electron reduction at the electrode
+($\require{mhchem} \ce{Ox} + n e^{-} \ce{\rightleftharpoons} \ce{Red}$) where Ox is the analyte's oxidized form and Red is its reduced form. These four figures, individually or collectively, are our tools for understanding chronoamperometry experiments.
 
-**Ladder Diagram (upper left)**. A ladder (or predominance) diagram shows the relative stability of an analyte's oxidized and reduced forms as a function of the applied potential and the analyte's formal potential, which in this case is $-0.25 \text{ V}$. For potentials more positive than $-0.25 \text{ V}$, the analyte's oxidized form, Ox, is more stable than the reduced form, and for potentials more negative than $-0.25 \text{ V}$, the analyte's reduced form, Red, is more stable than the oxidized form. At the formal potential, the oxidized and reduced forms are equally stable, and are equal in concentration.
+**Ladder Diagram (upper left)**. A ladder (or predominance) diagram shows the relative stability of an analyte's oxidized and reduced forms as a function of the applied potential and the analyte's formal potential, which in this case is $-0.25 \text{ V}$. For potentials more positive than $-0.25 \text{ V}$, the analyte's oxidized form, Ox, is more stable than its reduced form, and for potentials more negative than $-0.25 \text{ V}$, the analyte's reduced form, Red, is more stable than its oxidized form. At the formal potential, the oxidized and reduced forms are equally stable, and are equal in concentration.
 
-**Potential Profile (upper right)**. In a chronoamperometry experiment, the applied potential profile has three sections: first the potential is set and held constant at a value where the analyte does not undergo an oxidation or a reduction reaction; second, the potential is pulsed to a value where the analyte is oxidized or reduced; and, third, the applied potential is held at this value. In this experiment the applied potential is held at 0.0 V for 10 seconds and then pulsed to a potential of --0.5 V and held at this potential for an additional 10 seconds. 
+**Potential Profile (upper right)**. In a chronoamperometry experiment, the applied potential profile has three sections: first, the potential is set and held constant at a value where the analyte does not undergo an oxidation or a reduction reaction; second, the potential is pulsed to a value where the analyte is oxidized or reduced; and, third, the applied potential is held at this value. In the experiment shown here the applied potential is held at 0.0 V for 10 seconds and then pulsed to a potential of --0.5 V and held at this potential for an additional 10 seconds. 
 
-**Diffusion Profiles (lower left)**. A diffusion profile shows the concentration of the analyte's oxidized and reduced forms as a function of distance from the electrode's surface at a given time; here the diffusion profiles are shown at the beginning of the experiment and at the end of the experiment.
+**Diffusion Profiles (lower left)**. A diffusion profile shows the concentration of the analyte's oxidized and reduced forms as a function of distance from the electrode's surface at a specific time; here the diffusion profiles are shown at the beginning of the experiment ($t = 0 \text{ s}$) and at the end of the experiment ($t = 20 \text{ s}$).
 
-**Chronoamperogram (lower right)**. The chronoamperogram shows the current that flows as a function of time. 
+**Chronoamperogram (lower right)**. The chronoamperogram shows the current that flows as a function of time. This is the tangible result of a chronoamperometry experiment.

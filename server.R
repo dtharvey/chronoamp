@@ -11,7 +11,7 @@ palette("Okabe-Ito")
 # data for application
 introCA = simulateCA(t.1 = 10, t.end = 20)
 doubleCA = simulateCA(mechanism = "E", pulses = "double",
-                      t.1 = 0.001, t.2 = 0.003, t.end = 0.005,
+                      t.1 = 10, t.2 = 20, t.end = 30,
                       kcf = 0, t.units = 2000)
 
 shinyServer(function(input,output,session){
@@ -95,8 +95,8 @@ shinyServer(function(input,output,session){
          ylim = c(introCA$initialE+introCA$pulseE,introCA$initialE),
          main = "ladder diagram", bty = "n", 
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
-    legend(x = "topright", legend = c("Ox","Red"),
-           fill = c(2,3), bty = "n", cex = 1.25)
+    legend(x = "topright", legend = c("Ox","Red", "applied potential"),
+           fill = c(2,3,8), bty = "n", cex = 1.25)
     rect(xleft = 1, ybottom = introCA$initialE+introCA$pulseE,
          xright = 3, ytop = introCA$formalE, col = 3)
     rect(xleft = 1, ybottom = introCA$formalE,
@@ -105,7 +105,7 @@ shinyServer(function(input,output,session){
     text(x = 4, y = -0.25, "formal potential", pos = 4, cex = 1.25)
     lines(x = c(1,3), 
           y = c(introCA$potential[index],introCA$potential[index]), 
-          col = 1, lwd = 6)
+          col = 8, lwd = 9)
     
     # potential profile
     plot(x = introCA$time[1:index], 
@@ -159,22 +159,28 @@ shinyServer(function(input,output,session){
   })
   
   output$act2_plot = renderPlot({
-    # index12 = which.min(abs(introCA$time - 12))
+    index12 = which.min(abs(introCA$time - 12))
     index13 = which.min(abs(introCA$time - 13))
     index14 = which.min(abs(introCA$time - 14))
     index15 = which.min(abs(introCA$time - 15))
     index16 = which.min(abs(introCA$time - 16))
     index17 = which.min(abs(introCA$time - 17))
-    plot(x = ca_cottrell()$time, y = ca_cottrell()$current, type = "l",
-         lwd = 4, col = 6, xlab = "total elapsed time (s)", ylab = "current (µA)",
+    index18 = which.min(abs(introCA$time - 18))
+    index19 = which.min(abs(introCA$time - 19))
+    index20 = which.min(abs(introCA$time - 20))
+    ptindex = c(index12, index13, index14, index15, index16, index17,
+                index18, index19, index20)
+    plot(x = ca_cottrell()$time, y = ca_cottrell()$current, 
+         type = "l", lwd = 4, col = 6, 
+         xlab = "total elapsed time (s)", ylab = "current (µA)",
          ylim = c(0,25), xlim = c(10,20),
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
-    points(x = ca_cottrell()$time[c(index13,index14,index15,index16,index17)], 
-           y = ca_cottrell()$current[c(index13,index14,index15,index16,index17)],
+    points(x = ca_cottrell()$time[ptindex], 
+           y = ca_cottrell()$current[ptindex],
            pch = 19, col = 2, cex = 2)
-    text(x = ca_cottrell()$time[c(index13,index14,index15,index16,index17)],
-         y = ca_cottrell()$current[c(index13,index14,index15,index16,index17)],
-         labels = round(ca_cottrell()$current[c(index13,index14,index15,index16,index17)],3),
+    text(x = ca_cottrell()$time[ptindex],
+         y = ca_cottrell()$current[ptindex],
+         labels = round(ca_cottrell()$current[ptindex],3),
          srt = 90, pos = 3, offset = 3, cex = 1.5)
     grid()
   })
@@ -185,15 +191,22 @@ shinyServer(function(input,output,session){
   
   doublestepCA = reactive({
     simulateCA(mechanism = "EC", pulses = "double",
-               t.1 = 0.001, t.2 = 0.003, t.end = 0.005,
+               t.1 = 10, t.2 = input$t2, t.end = 30,
                kcf = input$kcf, t.units = 5000)
   })
   
-  output$act3_plota = renderPlot({
-    old.par = par(mar = c(5,4,1,2))
-    plotCA(list(doubleCA, doublestepCA()), scale = 0.1,
-           legend_text = c("kcf = 0", paste0("kcf = ",input$kcf)),
-           legend_position = "topright")
+  output$act3plot = renderPlot({
+    old.par = par(mar = c(5,4,1,2), cex = 1.5)
+    # plotCA(list(doublestepCA()), scale = 0.5, line_types = c(1),
+    #        line_widths = c(2), line_colors = c(6),
+    #        legend_text = c(paste0("kcf = ",input$kcf)),
+    #        legend_position = "topright")
+     plot(x = doublestepCA()$time, y = doublestepCA()$current,
+          type = "l", lwd = 6, col = 3, 
+          xlab = "time (s)", ylab = "current (µA", 
+          ylim = c(-6,6))
+     lines(x = doubleCA$time, y = doubleCA$current,
+           lty = 2, lwd = 2, col = 1)
     grid()
     par(old.par)
     # plot(x = doublestepCA()$time, y = doublestepCA()$current, type = "l",
@@ -203,23 +216,23 @@ shinyServer(function(input,output,session){
     #       col = 2)
   })
   
-  output$act3_plotb = renderPlot({
+  output$act4plot = renderPlot({
     introCC = simulateCC(introCA)
-    index = which.min(abs(introCA$time - input$act3_time))
+    index = which.min(abs(introCA$time - input$cctime))
     old.par = par(mfrow = c(1,2))
     plot(x = introCA$time[1:index], y = introCA$current[1:index], type = "l",
          lwd = 4, col = 6, xlab = "time (s)", ylab = "current (µA)",
          main = "chronoamperometry", ylim = c(0,max(introCA$current)),
          xlim = c(0,introCA$time_end),
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
-    abline(v = input$act3_time, lty = 3, col = 1, lwd = 4)
+    abline(v = input$cctime, lty = 3, col = 1, lwd = 4)
     grid()
     plot(x = introCC$time[1:index], y = introCC$charge[1:index], type = "l",
          lwd = 4, col = 6, xlab = "time (s)", ylab = "charge (µC)",
          main = "chronocoulometry", ylim = c(0,max(introCC$charge)),
          xlim = c(0,introCC$time_end),
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
-    abline(v = input$act3_time, lty = 3, col = 1, lwd = 4)
+    abline(v = input$cctime, lty = 3, col = 1, lwd = 4)
     grid()
     # plotCA(list(introCA))
     # plotCC(list(introCC))
