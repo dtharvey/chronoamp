@@ -12,6 +12,8 @@ The `eChem` package is available from [CRAN](https://cran.r-project.org/web/pack
 
 For a general introduction to electrochemistry, see Chapter 11 (and, in particular, Chapter 11.4) of [*Analytical Chemistry 2.1*](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_(Harvey)/11%3A_Electrochemical_Methods). This resources is available through the [LibreText](https://libretexts.org/) project.
 
+For more information about ladder diagrams, see Chapter 6.6 of [*Analytical Chemistry 2.1*](https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Analytical_Chemistry_2.1_(Harvey)/06%3A_Equilibrium_Chemistry/6.06%3A_Ladder_Diagrams). This resources is available through the [LibreText](https://libretexts.org/) project.
+
 Another useful general introduction of electrochemistry is [*Analytical Chemistry: The Basic Concepts*](https://www.asdlib.org/onlineArticles/ecourseware/Kelly_Potentiometry/EC_CONCEPTS1.HTM). This resource is available through the [Analytical Sciences Digital Library](https://asdlib.org/).
 
 An excellent introduction to thinking about electrochemistry is the following paper: [Larry R. Faulkner "Understanding electrochemistry: Some distinctive concepts", *J. Chem. Educ.* **1983**, *60*, 262--264](https://doi.org/10.1021/ed060p262).

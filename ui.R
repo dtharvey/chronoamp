@@ -18,8 +18,8 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
       ))),
         column(width = 6, # right column that holds visualizations
           align = "center",
-          br(), # code that creates html tags for new line
-          plotOutput("intro_plot", height = "700px") # output to server
+          br(), 
+          plotOutput("intro_plot", height = "700px") 
           )
       )), # close introduction tabPanel
      
