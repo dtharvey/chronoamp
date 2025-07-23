@@ -1,18 +1,5 @@
 # user interface for chronoamperometry module
 
-# use library() to load packages used in app
-# at a minimum this will be the shiny and the shinythemes packages
-# add others as needed
-
-library(shiny)
-library(shinythemes)
-library(eChem)
-
-
-# the code below creates the app's user interface, which consists of
-# a navbar page and at least three tabpanels: an introduction, an 
-# activity, and a wrap-up; additional activity tabPanels can be added
-
 ui = navbarPage("AC 3.0: Chronoamperometry",
      theme = shinytheme("journal"),
      header = tags$head(
@@ -21,12 +8,14 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
                  href = "style.css") # link to css file in www folder
      ),
      
+# tabpanel for introduction
      tabPanel("Introduction",
       fluidRow(withMathJax(),
         column(width = 6, # left column that holds text
           wellPanel(
-            includeHTML("text/introduction.html") # link to introduction
-      )),
+            div(class = "html-fragment",
+            includeHTML("text/introduction.html")
+      ))),
         column(width = 6, # right column that holds visualizations
           align = "center",
           br(), # code that creates html tags for new line
@@ -34,12 +23,14 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
           )
       )), # close introduction tabPanel
      
+# tabpanel for first activity
      tabPanel("Typical Experiment",
       fluidRow(
         column(width = 6,
-          wellPanel(
-            includeHTML("text/activity1.html")
-      )),
+               wellPanel(
+                 div(class = "html-fragment",
+                     includeHTML("text/activity1.html")
+                 ))),
         column(width = 6,
           align = "center",
           splitLayout(
@@ -52,40 +43,48 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
           ),
           plotOutput("act1_plot", height = "600px")
           )
-      )), # close activity tabPanel
+      )), # close first activity tabPanel
      
+# tabpanel for second activity
      tabPanel("Cottrell Equation",
       fluidRow(
         column(width = 6,
-          wellPanel(includeHTML("text/activity2.html")
-            )),
+               wellPanel(
+                 div(class = "html-fragment",
+                     includeHTML("text/activity2.html")
+                 ))),
         column(width = 6,
           align = "center",
             splitLayout(
               radioButtons("n","n",
                            choices = c(1,2,3), 
                            selected = 2),
-              radioButtons("A", "A", 
+              radioButtons(inputId = "A", 
+                           label = HTML(paste0("A (cm",tags$sup("2"),")")), 
                            choices = c(0.005, 0.010, 0.020), 
                            selected = 0.010),
-              radioButtons("D","D",
+              radioButtons(inputId = "D", 
+                           label = HTML(paste0("D (cm",tags$sup("2"),"/s)")),
                            choices = c(5e-6,1e-5,2e-5), 
                            selected = 1e-5),
-              radioButtons("C","C",
+              radioButtons(inputId = "C",
+                           label = HTML(paste0("C (M)")),
                            choices = c(0.0005,0.001,0.002), 
                            selected = 0.001)
             ),
           plotOutput("act2_plot", height = "600px")
           )
        
-      )),
+      )), # close second activity tabpanel 
      
+# tabpanel for third activity
      tabPanel("Double-Step Chronoamperometry",
               fluidRow(
                 column(width = 6,
                        wellPanel(
-                         includeHTML("text/activity3.html")
-                       )),
+                         div(class = "html-fragment",
+                             includeHTML("text/activity3.html")
+                         ))),
                 column(width = 6,
                        align = "center",
                        splitLayout(
@@ -103,14 +102,16 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
                        plotOutput("act3plot", height = "600px")
 
                 )
-              )), # close activity tabPanel
+              )), # close third activity tabPanel
      
+# tabpanel for fourth activity
      tabPanel("Chronocoulometry",
       fluidRow(
         column(width = 6,
                wellPanel(
-                 includeHTML("text/activity4.html")
-               )),
+                 div(class = "html-fragment",
+                     includeHTML("text/activity4.html")
+                 ))),
         column(width = 6,
                align = "center",
                sliderInput("cctime", "time (s)",
@@ -119,19 +120,22 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
                            animate = TRUE, 
                            animationOptions(interval = 25)),
                plotOutput("act4plot", height = "500px")
-      ))),
+      ))), # close tabpanel for fourth activity
      
+# tabpanel for wrapping-up
      tabPanel("Wrapping Up",
       fluidRow(
         column(width = 6,
-               wellPanel(id = "wrapuppanel",
-                  style = "overflow-y:scroll; max-height: 750px",
-                  includeHTML("text/wrapup.html"))),
+               wellPanel(
+                 div(class = "scrollable-well",
+                     class = "html-fragment",
+                     includeHTML("text/wrapup.html")
+                 ))),
         column(width = 6,
           align = "center",
           plotOutput("wrapup_plot1", height = "700px")
           )
           
-      )) # close wrapping up tabPanel
+      )) # close wrapping-up tabPanel
      
      ) # close navbarpage

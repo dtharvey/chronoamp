@@ -1,30 +1,9 @@
-# server for chronoamp
-
-library(shiny)
-library(shinythemes)
-library(eChem)
-
-
-# set colors
-palette("Okabe-Ito")
-
-# data for application
-introCA = simulateCA(t.1 = 10, t.end = 20)
-doubleCA = simulateCA(mechanism = "E", pulses = "double",
-                      t.1 = 10, t.2 = 20, t.end = 30,
-                      kcf = 0, t.units = 2000)
+# server for chronoamperometry module
 
 shinyServer(function(input,output,session){
   
-  ca = reactive({
-    out = simulateCA(n = as.numeric(input$n),
-               d = 10^(input$diff),
-               area = 10^(input$area),
-               conc.bulk = 10^(input$conc))
-  })
-  
+# output for introduction  
   output$intro_plot = renderPlot({
-
     old.par = par(mfrow = c(2,2))
     # ladder diagram
     plot(x = -1, y = -1,
@@ -71,8 +50,10 @@ shinyServer(function(input,output,session){
     lines(x = introCA$distance, y = introCA$oxdata[2001,], lty = 3,
           col = 2, lwd = 4)
     legend(x = "right", 
-           legend = c("Ox (initial)","Red (initial)", "Ox (end)", "Red (end)"),
-           col = c(2,3,2,3), lwd = 4, lty = c(1,1,3,3), bty = "n", cex = 1.25)
+           legend = c("Ox (initial)","Red (initial)", 
+                      "Ox (end)", "Red (end)"),
+           col = c(2,3,2,3), lwd = 4, lty = c(1,1,3,3), 
+           bty = "n", cex = 1.25)
     grid()
     
     # current profile
@@ -85,6 +66,7 @@ shinyServer(function(input,output,session){
     
     })
   
+# output for first activity
   output$act1_plot = renderPlot({
     
     old.par = par(mfrow = c(2,2))
@@ -127,18 +109,15 @@ shinyServer(function(input,output,session){
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
     lines(x = introCA$distance, y = introCA$reddata[index,], lty = 1,
           col = 3, lwd = 4)
-    # lines(x = introCA$distance, y = introCA$reddata[2001,], lty = 3,
-    #       col = 3, lwd = 4)
-    # lines(x = introCA$distance, y = introCA$oxdata[2001,], lty = 3,
-    #       col = 2, lwd = 4)
     legend(x = "right", 
            legend = c("Ox", "Red"),
            col = c(2,3), lwd = 4, lty = c(1,1), bty = "n", cex = 1.25)
     grid()
     
     # current profile
-    plot(x = introCA$time[1:index], y = introCA$current[1:index], type = "l",
-         lwd = 4, col = 6, xlab = "time (s)", ylab = "current (µA)",
+    plot(x = introCA$time[1:index], y = introCA$current[1:index], 
+         type = "l",nlwd = 4, col = 6, 
+         xlab = "time (s)", ylab = "current (µA)",
          main = "current profile", ylim = c(0,max(introCA$current)),
          xlim = c(0,introCA$time_end),
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
@@ -148,6 +127,7 @@ shinyServer(function(input,output,session){
     
   })
   
+# output for second activity
   ca_cottrell = reactive({
     out = simulateCA(
       n = as.numeric(input$n),
@@ -185,10 +165,7 @@ shinyServer(function(input,output,session){
     grid()
   })
   
-  output$wrapup_plot1 = renderPlot({
-    plotGrid(introCA)
-  })
-  
+# output for third activity
   doublestepCA = reactive({
     simulateCA(mechanism = "EC", pulses = "double",
                t.1 = 10, t.2 = input$t2, t.end = 30,
@@ -197,46 +174,45 @@ shinyServer(function(input,output,session){
   
   output$act3plot = renderPlot({
     old.par = par(mar = c(5,4,1,2), cex = 1.5)
-    # plotCA(list(doublestepCA()), scale = 0.5, line_types = c(1),
-    #        line_widths = c(2), line_colors = c(6),
-    #        legend_text = c(paste0("kcf = ",input$kcf)),
-    #        legend_position = "topright")
-     plot(x = doublestepCA()$time, y = doublestepCA()$current,
-          type = "l", lwd = 6, col = 3, 
-          xlab = "time (s)", ylab = "current (µA", 
-          ylim = c(-6,6))
-     lines(x = doubleCA$time, y = doubleCA$current,
-           lty = 2, lwd = 2, col = 1)
+    plot(x = doublestepCA()$time, y = doublestepCA()$current,
+         type = "l", lwd = 6, col = 3, 
+         xlab = "time (s)", ylab = "current (µA", 
+         ylim = c(-6,6))
+    lines(x = doubleCA$time, y = doubleCA$current,
+          lty = 2, lwd = 2, col = 1)
+    legend(x = "topright", legend = c("k = 0","k > 0"),
+           lty = c(1,2), lwd = c(6,2), col = c(3,1), bty = "n")
     grid()
     par(old.par)
-    # plot(x = doublestepCA()$time, y = doublestepCA()$current, type = "l",
-    #      lwd = 4, col = 6, xlab = "total elapsed time (s)", ylab = "current (µA)",
-    #      cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
-    # lines(x = doubleCA$time, y = doubleCA$current, lty = 3, lwd = 4, 
-    #       col = 2)
   })
   
+# output for fourth activity
   output$act4plot = renderPlot({
     introCC = simulateCC(introCA)
     index = which.min(abs(introCA$time - input$cctime))
     old.par = par(mfrow = c(1,2))
-    plot(x = introCA$time[1:index], y = introCA$current[1:index], type = "l",
-         lwd = 4, col = 6, xlab = "time (s)", ylab = "current (µA)",
+    plot(x = introCA$time[1:index], y = introCA$current[1:index], 
+         type = "l", lwd = 4, col = 6, 
+         xlab = "time (s)", ylab = "current (µA)",
          main = "chronoamperometry", ylim = c(0,max(introCA$current)),
          xlim = c(0,introCA$time_end),
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
     abline(v = input$cctime, lty = 3, col = 1, lwd = 4)
     grid()
-    plot(x = introCC$time[1:index], y = introCC$charge[1:index], type = "l",
-         lwd = 4, col = 6, xlab = "time (s)", ylab = "charge (µC)",
+    plot(x = introCC$time[1:index], y = introCC$charge[1:index], 
+         type = "l", lwd = 4, col = 6, 
+         xlab = "time (s)", ylab = "charge (µC)",
          main = "chronocoulometry", ylim = c(0,max(introCC$charge)),
          xlim = c(0,introCC$time_end),
          cex.lab = 1.25, cex.main = 1.25, cex.axis = 1.25)
     abline(v = input$cctime, lty = 3, col = 1, lwd = 4)
     grid()
-    # plotCA(list(introCA))
-    # plotCC(list(introCC))
     par(old.par)
+  })
+  
+# output for wrapping up
+  output$wrapup_plot1 = renderPlot({
+    plotGrid(introCA)
   })
   
 }) # close server
