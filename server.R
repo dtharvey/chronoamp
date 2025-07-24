@@ -116,7 +116,7 @@ shinyServer(function(input,output,session){
     
     # current profile
     plot(x = introCA$time[1:index], y = introCA$current[1:index], 
-         type = "l",nlwd = 4, col = 6, 
+         type = "l", lwd = 4, col = 6, 
          xlab = "time (s)", ylab = "current (µA)",
          main = "current profile", ylim = c(0,max(introCA$current)),
          xlim = c(0,introCA$time_end),

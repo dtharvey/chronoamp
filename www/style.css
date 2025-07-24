@@ -1,21 +1,22 @@
 /* CSS styling for the HTML fragment inside the wellPanel */
 .html-fragment p 
   {
-  font-size: 18px ;
+    font-size: 19px ;
+    font-family: 'Arial', sans-serif;
   }
   
 /* CSS styling for the scrollable wellPanel on wrapping up tab */   
 .scrollable-well
    {
-     font-size: 18px;
      height: 700px;
      overflow-y: auto;
      padding: 10px;
   }
 
 /* CSS styling for text in the navigation bar */
-nav {
-  font-weight: bold;
-}
+nav 
+  {
+    font-weight: bold;
+  }
 
 
