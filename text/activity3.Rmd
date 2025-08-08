@@ -4,17 +4,15 @@ output: html_fragment
 
 <!-- text for activity 3 -->
 
-The chronoamperometry experiment outlined in the introduction uses a single potential pulse and monitors the current that flows. In a double-step chronoamperometry experiment we follow the initial pulse and measurement of current with a second pulse---the double in double-step---that returns the potential to its initial value. 
+The chronoamperometry experiment outlined in the introduction monitored the current following a single potential pulse. In a double-step chronoamperometry experiment we follow the initial pulse and measurement of current with a second pulse---the double in double-step---that returns the potential to its initial value. 
 
 #### Studying Systems of Coupled Reactions
 
-Double-step chronoamperometry is used to study systems of reactions that include a redox reaction and a chemical reaction. Such a system of reactions is called coupled. For example, the reversible one electron reduction of an oxidized species, Ox, to a reduced species, Red, followed by the irreversible chemical reaction of Red to form Z is an example of coupling a reversible redox reaction to an irreversible chemical reaction. Note that Z does not undergo oxidation or reduction.
-
-$$\ce{Ox} + e^- \ce{\rightleftharpoons} \ce{Red} \quad \quad \quad \ce{Red} \ce{\rightarrow} \ce{Z}$$
+Double-step chronoamperometry is used to study systems of reactions that include a redox reaction and a chemical reaction. Such a system of reactions is called coupled. For example, the reversible one electron reduction of an oxidized species to a reduced species, $\ce{Ox} + e^- \ce{\rightleftharpoons} \ce{Red}$, followed by the irreversible chemical reaction of the reduced species to form a non-redox active product, $\ce{Red} \ce{\rightarrow} \ce{Z}$, is an example of coupling a reversible redox reaction to an irreversible chemical reaction. 
 
 **Exercise 1**. The coupled reactions begins with a reversible redox reaction followed by an irreversible chemical reaction (this mechanism is usually abbreviated as $\ce{E}_r \ce{C}_i$). What does it mean to say that a reaction is reversible? What does it mean to say that a reaction is irreversible?
 
 **Exercise 2**. The concentration of Red at the electrode's surface depends, in part, on how quickly it reacts to form Z, which is determined by the reaction's rate constant and how soon after the first potential pulse we apply the second potential pulse. Based on this description, predict the effect on the current of increasing the rate constant for the reaction $\ce{Red} \ce{\rightarrow} \ce{Z}$, and the effect on the current of decreasing the time between the first and the second potential pulse.
 
-**Exercise 3**. The figure on the right shows the double-step chronoamperogram as a thin black dashed line when the rate constant, $k$, for $\ce{Red} \ce{\rightarrow} \ce{Z}$ is set to zero---that is, the when the reaction $\ce{Red} \ce{\rightarrow} \ce{Z}$ does not take place---and shows the current for the experiment defined by the two sliders as a thick, solid blue line. Use the sliders to evaluate your predictions from the previous exercise.
+**Exercise 3**. The figure on the right shows the double-step chronoamperogram as a thin black dashed line when the rate constant, $k$, for $\ce{Red} \ce{\rightarrow} \ce{Z}$ is set to zero---that is, when the reaction $\ce{Red} \ce{\rightarrow} \ce{Z}$ does not occur---and the second pulse is at 20 s. The solid blue line shows the current when the rate constant is greater than 0 and when the second pulse is at less than 20 s. Use the sliders to evaluate your predictions from the previous exercise.
 

@@ -1,22 +1,35 @@
-/* CSS styling for the HTML fragment inside the wellPanel */
-.html-fragment p 
-  {
-    font-size: 19px ;
-    font-family: 'Arial', sans-serif;
-  }
-  
-/* CSS styling for the scrollable wellPanel on wrapping up tab */   
-.scrollable-well
-   {
-     height: 700px;
-     overflow-y: auto;
-     padding: 10px;
-  }
+html-fragment{
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
 
-/* CSS styling for text in the navigation bar */
-nav 
-  {
-    font-weight: bold;
-  }
+nav {
+  font-weight: bold;
+}
 
+.scrollable-well{
+  max-height: 700px;
+  overflow-y: auto;
+  padding: 10px;
+}
 
+/* Shrink font sizes inside Shiny sliders */
+.irs,
+.irs-line,
+.irs-bar,
+.irs-from,
+.irs-to,
+.irs-single,
+.irs-grid-text,
+.irs-min,
+.irs-max,
+.irs-grid {
+  font-size: 11px !important;
+}
+
+/* Shrink font size of slider labels (titles) */
+  div.form-group > label.control-label {
+  font-size: 14px;
+  font-weight: normal;
+  font-family: 'Arial', sans-serif;
+}

@@ -13,13 +13,14 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
       fluidRow(withMathJax(),
         column(width = 6, # left column that holds text
           wellPanel(
+            class = "scrollable-well",
             div(class = "html-fragment",
             includeHTML("text/introduction.html")
       ))),
         column(width = 6, # right column that holds visualizations
           align = "center",
           br(), 
-          plotOutput("intro_plot", height = "700px") 
+          plotOutput("intro_plot", height = "600px") 
           )
       )), # close introduction tabPanel
      
@@ -28,6 +29,7 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
       fluidRow(
         column(width = 6,
                wellPanel(
+                 class = "scrollable-well",
                  div(class = "html-fragment",
                      includeHTML("text/activity1.html")
                  ))),
@@ -41,7 +43,7 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
                         animate = TRUE,
                         animationOptions(interval = 25))
           ),
-          plotOutput("act1_plot", height = "600px")
+          plotOutput("act1_plot", height = "500px")
           )
       )), # close first activity tabPanel
      
@@ -50,6 +52,7 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
       fluidRow(
         column(width = 6,
                wellPanel(
+                 class = "scrollable-well",
                  div(class = "html-fragment",
                      includeHTML("text/activity2.html")
                  ))),
@@ -72,7 +75,7 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
                            choices = c(0.0005,0.001,0.002), 
                            selected = 0.001)
             ),
-          plotOutput("act2_plot", height = "600px")
+          plotOutput("act2_plot", height = "500px")
           )
        
       )), # close second activity tabpanel 
@@ -82,6 +85,7 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
               fluidRow(
                 column(width = 6,
                        wellPanel(
+                          class = "scrollable-well",
                          div(class = "html-fragment",
                              includeHTML("text/activity3.html")
                          ))),
@@ -95,11 +99,11 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
                                      ticks = FALSE),
                          sliderInput("kcf", 
                                      "rate constant for chemical step",
-                                     min = 0, max = 2, step = 0.1,
+                                     min = 0, max = 5, step = 0.1,
                                      value = 0, ticks = FALSE
                                      )
                        ),
-                       plotOutput("act3plot", height = "600px")
+                       plotOutput("act3plot", height = "500px")
 
                 )
               )), # close third activity tabPanel
@@ -109,6 +113,7 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
       fluidRow(
         column(width = 6,
                wellPanel(
+                 class = "scrollable-well",
                  div(class = "html-fragment",
                      includeHTML("text/activity4.html")
                  ))),
@@ -127,13 +132,13 @@ ui = navbarPage("AC 3.0: Chronoamperometry",
       fluidRow(
         column(width = 6,
                wellPanel(
-                 div(class = "scrollable-well",
-                     class = "html-fragment",
+                 class = "scrollable-well",
+                 div(class = "html-fragment",
                      includeHTML("text/wrapup.html")
                  ))),
         column(width = 6,
           align = "center",
-          plotOutput("wrapup_plot1", height = "700px")
+          plotOutput("wrapup_plot1", height = "600px")
           )
           
       )) # close wrapping-up tabPanel

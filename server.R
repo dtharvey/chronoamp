@@ -175,13 +175,13 @@ shinyServer(function(input,output,session){
   output$act3plot = renderPlot({
     old.par = par(mar = c(5,4,1,2), cex = 1.5)
     plot(x = doublestepCA()$time, y = doublestepCA()$current,
-         type = "l", lwd = 6, col = 3, 
+         type = "l", lty = 1, lwd = 6, col = 3, 
          xlab = "time (s)", ylab = "current (µA", 
          ylim = c(-6,6))
     lines(x = doubleCA$time, y = doubleCA$current,
           lty = 2, lwd = 2, col = 1)
-    legend(x = "topright", legend = c("k = 0","k > 0"),
-           lty = c(1,2), lwd = c(6,2), col = c(3,1), bty = "n")
+    legend(x = "topright", legend = c("k = 0 and t = 20","k ≥ 0 and/or t ≤ 20"),
+           lty = c(2,1), lwd = c(2,6), col = c(1,3), bty = "n")
     grid()
     par(old.par)
   })
