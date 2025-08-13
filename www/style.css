@@ -8,7 +8,7 @@ nav {
 }
 
 .scrollable-well{
-  max-height: 700px;
+  height: 600px;
   overflow-y: auto;
   padding: 10px;
 }
@@ -28,7 +28,7 @@ nav {
 }
 
 /* Shrink font size of slider labels (titles) */
-  div.form-group > label.control-label {
+div.form-group > label.control-label {
   font-size: 14px;
   font-weight: normal;
   font-family: 'Arial', sans-serif;

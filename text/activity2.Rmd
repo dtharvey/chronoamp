@@ -8,14 +8,12 @@ The current in a chronoamperometry experiment is given by the Cottrell equation
 
 $$i(t) = \frac{n F A C \sqrt{D}}{\sqrt{\pi}\sqrt{t}}$$
 
-where $i(t)$ is the current at a time, $t$, after the pulse is applied, $n$ is the number of electrons in the redox reaction, $A$ is the electrode's surface area in cm^2^, $D$ is the diffusion coefficient for the electroactive species (Ox or Red) in cm^2^/s, $C$ is its concentration in mol/L, and $F$ is Faraday's constant (96,458 C/mol, where C is a coulomb). You can adjust the values for $n$, $A$, $D$, and $C$ using the radio buttons above the chronoamperogram. Values for the current, $i(t)$, at integer times from 12 s to 20 s appear above the orange points that mark their corresponding times.
+where $i(t)$ is the current at a time, $t$, after the pulse is applied, $n$ is the number of electrons in the redox reaction, $A$ is the electrode's surface area in cm^2^, $D$ is the diffusion coefficient for the electroactive species (Ox or Red) in cm^2^/s, $C$ is its concentration in mol/L, and $F$ is Faraday's constant (96,458 C/mol, where C is a coulomb). You can adjust the values for $n$, $A$, $D$, and $C$ using the radio buttons above the chronoamperogram. Values for the current, $i(t)$, at integer times from 12 s to $20$ s appear above the orange points that mark their corresponding times.
 
-**Exercise 1**. Considering the experiment's design explain why an increase in $n$, $A$, $D$, or $C$ results in a larger current, but an increase in $t$ results in a smaller current.
+**Exercise 1**. Given the experiment's design explain why an increase in $n$, $A$, $D$, or $C$ results in a larger current, but an increase in $t$ results in a smaller current.
 
-**Exercise 2**. Use the radio buttons to verify that the relationship between $i(t)$ and $n$, $A$, and $C$ is linear, but that there is a square-root relationship between $i(t)$ and $D$, and an inverse square-root relationship between $i(t)$ and $t$.
+**Exercise 2**. Use the radio buttons to verify that the relationships between $i(t)$ and $n$, $A$, and $C$ are linear, but that there is a square-root relationship between $i(t)$ and $D$, and an inverse square-root relationship between $i(t)$ and $t$.
 
 **Exercise 3**. Current is measured in amperes (A), which is equivalent to coulombs per second; that is, 1 C/s = 1 A. Show that the units on the right side of the Cottrell equation yield a current in amperes. Although we usually report concentration in mol/L, for this exercise you need to express volume using units of mol/cm^3^. Why? 
 
-**Exercise 4**. Set the radio buttons to $n = 1$, $A = 0.01 \text{ cm}^2$, $D = 1\times10^{-5} \text{ cm}^2\text{/s}$, and $C = 0.001 \text{ mol/L}$, and make note of the current in µA at a total elapsed time of 14 s. Verify that this current is correct by using the Cottrell equation to calculate the current. Be sure to consider your work on Exercise 3 and to consider the meaning of time in the Cottrell equation.
-
-**Exercise 5**. Explain how you can use the Cottrell equation to determine the concentration of an analyte in a sample.
+**Exercise 4**. Set the radio buttons to $n = 1$, $A = 0.01 \text{ cm}^2$, $D = 1\times10^{-5} \text{ cm}^2\text{/s}$, and $C = 0.001 \text{ mol/L}$, and make note of the current in µA at a total elapsed time of 14 s. Verify that your result is correct by using the Cottrell equation to calculate the current. Be sure to consider your work on Exercise 3 and to consider the meaning of time in the Cottrell equation.
